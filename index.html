@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stas MetaGhetto | BEAT CATALOG</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/tone"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+        body { 
+            font-family: 'Helvetica', 'Inter', sans-serif; 
+            background-color: #FAF9F6; /* OFF-WHITE color */
+        }
+       .safety-orange { background-color: #FF4500; }
+       .pastel-bg { background-color: #E2E8F0; }
+       .industrial-border { border: 1px solid #000; }
+        input[type="range"] { -webkit-appearance: none; background: transparent; }
+        input[type="range"]::-webkit-slider-runnable-track { background: #000; height: 2px; }
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 16px; width: 16px;
+            background: #FF4500; margin-top: -7px; border-radius: 0;
+            cursor: pointer;
+        }
+        input[type="range"]:disabled::-webkit-slider-thumb {
+            background: #ccc;
+        }
+        
+        .beat-active {
+            background-color: #000;
+            color: #fff;
+        }
+        .beat-active .opacity-60 {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+
+    <header class="mb-12 border-b-2 border-black pb-8">
+        <div>
+            <h1 class="text-4xl md:text-5xl font-black uppercase tracking-tighter">STAS METAGHETTO</h1>
+            <p class="text-sm font-mono mt-2">PROPERTY OF METAGHETTO © 2026 // AUDIO_SYSTEM</p>
+        </div>
+        
+        <div class="mt-6 flex flex-col lg:flex-row gap-8 lg:gap-12 items-stretch">
+            <div class="border-2 border-black p-3 md:p-4 inline-block bg-[#F5F5F5] shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] select-none self-start shrink-0">
+                <div class="grid grid-cols-4 gap-2 md:gap-3">
+                    <div class="w-10 h-10 md:w-12 md:h-12 border-2 border-black bg-white hover:bg-[#FF4500] transition-colors cursor-pointer active:bg-black" onclick="playRandomBeat()"></div>
+                    <div class="w-10 h-10 md:w-12 md:h-12 border-2 border-black bg-white hover:bg-[#FF4500] transition-colors cursor-pointer active:bg-black" onclick="playRandomBeat()"></div>
+                    <div class="w-10 h-10 md:w-12 md:h-12 border-2 border-black bg-white hover:bg-[#FF4500] transition-colors cursor-pointer active:bg-black" onclick="playRandomBeat()"></div>
+                    <div class="w-10 h-10 md:w-12 md:h-12 border-2 border-black bg-white hover:bg-[#FF4500] transition-colors cursor-pointer active:bg-black" onclick="playRandomBeat()"></div>
+                    
+                    <div class="w-10 h-10 md:w-12 md:h-12 border-2 border-black bg-white hover:bg-[#FF4500] transition-colors cursor-pointer active:bg-black" onclick="playRandomBeat()"></div>
+                    <div class="w-10 h-10 md:w-12 md:h-12 border-2 border-black bg-white hover:bg-[#FF4500] transition-colors cursor-pointer active:bg-black" onclick="playRandomBeat()"></div>
+                    <div class="w-10 h-10 md:w-12 md:h-12 border-2 border-black bg-white hover:bg-[#FF4500] transition-colors cursor-pointer active:bg-black" onclick="playRandomBeat()"></div>
+                    <div class="w-10 h-10 md:w-12 md:h-12 border-2 border-black bg-[#FF4500] transition-colors cursor-pointer shadow-[inset_0_0_10px_rgba(0,0,0,0.2)] active:bg-black" onclick="playRandomBeat()"></div>
+                    
+                    <div class="w-10 h-10 md:w-12 md:h-12 border-2 border-black bg-white hover:bg-[#FF4500] transition-colors cursor-pointer active:bg-black" onclick="playRandomBeat()"></div>
+                    <div class="w-10 h-10 md:w-12 md:h-12 border-2 border-black bg-white hover:bg-[#FF4500] transition-colors cursor-pointer active:bg-black" onclick="playRandomBeat()"></div>
+                    <div class="w-10 h-10 md:w-12 md:h-12 border-2 border-black bg-white hover:bg-[#FF4500] transition-colors cursor-pointer active:bg-black" onclick="playRandomBeat()"></div>
+                    <div class="w-10 h-10 md:w-12 md:h-12 border-2 border-black bg-white hover:bg-[#FF4500] transition-colors cursor-pointer active:bg-black" onclick="playRandomBeat()"></div>
+                    
+                    <div class="w-10 h-10 md:w-12 md:h-12 border-2 border-black bg-white hover:bg-[#FF4500] transition-colors cursor-pointer active:bg-black" onclick="playRandomBeat()"></div> 
+                    <div class="w-10 h-10 md:w-12 md:h-12 border-2 border-black bg-white hover:bg-[#FF4500] transition-colors cursor-pointer active:bg-black" onclick="playRandomBeat()"></div>
+                    <div class="w-10 h-10 md:w-12 md:h-12 border-2 border-black bg-white hover:bg-[#FF4500] transition-colors cursor-pointer active:bg-black" onclick="playRandomBeat()"></div>
+                    <div class="w-10 h-10 md:w-12 md:h-12 border-2 border-black bg-[#FF4500] transition-colors cursor-pointer opacity-50 active:bg-black" onclick="playRandomBeat()"></div>
+                </div>
+            </div>
+
+            <div class="flex flex-col flex-1 h-full min-h-[200px] xl:max-w-xl">
+                <div class="mb-3">
+                    <span class="safety-orange text-white text-[10px] md:text-xs font-bold px-3 py-1.5 uppercase tracking-widest border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                        // НАЖМИТЕ НА ЛЮБОЙ ДРАМ ПЭД, ЧТОБЫ ВКЛЮЧИТЬ БИТ
+                    </span>
+                </div>
+                <textarea 
+                    class="w-full flex-1 industrial-border p-4 font-mono text-sm resize-none focus:outline-none focus:ring-2 focus:ring-black bg-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]" 
+                    placeholder="[ ПИШИ СВОЙ ТЕКСТ ТРЕКА ЗДЕСЬ... ]"></textarea>
+            </div>
+        </div>
+    </header>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        
+        <div class="flex flex-col gap-10">
+            <section>
+                <h2 class="text-xl font-bold mb-4 italic">// AVAILABLE_BEATS</h2>
+                
+                <div class="flex flex-wrap gap-2 mb-6" id="genre-filters">
+                    <button class="filter-btn industrial-border px-3 py-1 text-xs font-bold uppercase hover:bg-black hover:text-white transition-colors bg-black text-white" onclick="filterBeats('ALL')">ALL</button>
+                    <button class="filter-btn industrial-border px-3 py-1 text-xs font-bold uppercase hover:bg-black hover:text-white transition-colors" onclick="filterBeats('UK JERK')">UK JERK</button>
+                    <button class="filter-btn industrial-border px-3 py-1 text-xs font-bold uppercase hover:bg-black hover:text-white transition-colors" onclick="filterBeats('MEMPHIS TRAP')">MEMPHIS TRAP</button>
+                    <button class="filter-btn industrial-border px-3 py-1 text-xs font-bold uppercase hover:bg-black hover:text-white transition-colors" onclick="filterBeats('ALTERNATIVE R&B')">ALTERNATIVE R&B</button>
+                    <button class="filter-btn industrial-border px-3 py-1 text-xs font-bold uppercase hover:bg-black hover:text-white transition-colors" onclick="filterBeats('SOULFUL')">SOULFUL</button>
+                    <button class="filter-btn industrial-border px-3 py-1 text-xs font-bold uppercase hover:bg-black hover:text-white transition-colors" onclick="filterBeats('LATIN VIBES')">LATIN VIBES</button>
+                    <button class="filter-btn industrial-border px-3 py-1 text-xs font-bold uppercase hover:bg-black hover:text-white transition-colors" onclick="filterBeats('CHILL-OUT')">CHILL-OUT</button>
+                </div>
+
+                <div class="space-y-4" id="beat-list">
+                    <div id="beat-1" data-genre="UK JERK" class="track-item page-1 industrial-border p-4 hover:bg-black hover:text-white transition-colors cursor-pointer group flex justify-between items-center" onclick="loadBeat('beat-1', 'CYBER_STREETS', 140, 'C# min', 'https://tonejs.github.io/audio/drum-samples/loops/amen_break.mp3')">
+                        <div>
+                            <p class="text-xs font-mono mb-1 opacity-60">UK JERK</p>
+                            <h3 class="text-lg font-bold uppercase">CYBER_STREETS</h3>
+                        </div>
+                        <div class="text-right text-xs font-mono">
+                            <p>140 BPM</p>
+                            <p>KEY: C# MIN</p>
+                        </div>
+                    </div>
+
+                    <div id="beat-2" data-genre="MEMPHIS TRAP" class="track-item page-1 industrial-border p-4 hover:bg-black hover:text-white transition-colors cursor-pointer group flex justify-between items-center" onclick="loadBeat('beat-2', 'METAGHETTO_PULSE', 128, 'D maj', 'https://tonejs.github.io/audio/loop/FW3.mp3')">
+                        <div>
+                            <p class="text-xs font-mono mb-1 opacity-60">MEMPHIS TRAP</p>
+                            <h3 class="text-lg font-bold uppercase">METAGHETTO_PULSE</h3>
+                        </div>
+                        <div class="text-right text-xs font-mono">
+                            <p>128 BPM</p>
+                            <p>KEY: D MAJ</p>
+                        </div>
+                    </div>
+
+                    <div id="beat-3" data-genre="ALTERNATIVE R&B" class="track-item page-1 industrial-border p-4 hover:bg-black hover:text-white transition-colors cursor-pointer group flex justify-between items-center" onclick="loadBeat('beat-3', 'NEON_DRIFT', 135, 'F min', 'https://tonejs.github.io/audio/drum-samples/loops/amen_break.mp3')">
+                        <div>
+                            <p class="text-xs font-mono mb-1 opacity-60">ALTERNATIVE R&B</p>
+                            <h3 class="text-lg font-bold uppercase">NEON_DRIFT</h3>
+                        </div>
+                        <div class="text-right text-xs font-mono">
+                            <p>135 BPM</p>
+                            <p>KEY: F MIN</p>
+                        </div>
+                    </div>
+
+                    <div id="beat-4" data-genre="SOULFUL" class="track-item page-1 industrial-border p-4 hover:bg-black hover:text-white transition-colors cursor-pointer group flex justify-between items-center" onclick="loadBeat('beat-4', 'SYNTH_WAVE_X', 110, 'A min', 'https://tonejs.github.io/audio/loop/FW3.mp3')">
+                        <div>
+                            <p class="text-xs font-mono mb-1 opacity-60">SOULFUL</p>
+                            <h3 class="text-lg font-bold uppercase">SYNTH_WAVE_X</h3>
+                        </div>
+                        <div class="text-right text-xs font-mono">
+                            <p>110 BPM</p>
+                            <p>KEY: A MIN</p>
+                        </div>
+                    </div>
+
+                    <div id="beat-5" data-genre="LATIN VIBES" class="track-item page-1 industrial-border p-4 hover:bg-black hover:text-white transition-colors cursor-pointer group flex justify-between items-center" onclick="loadBeat('beat-5', 'DARK_MATTER', 145, 'E min', 'https://tonejs.github.io/audio/drum-samples/loops/amen_break.mp3')">
+                        <div>
+                            <p class="text-xs font-mono mb-1 opacity-60">LATIN VIBES</p>
+                            <h3 class="text-lg font-bold uppercase">DARK_MATTER</h3>
+                        </div>
+                        <div class="text-right text-xs font-mono">
+                            <p>145 BPM</p>
+                            <p>KEY: E MIN</p>
+                        </div>
+                    </div>
+
+                    <div id="beat-6" data-genre="CHILL-OUT" class="track-item page-2 hidden industrial-border p-4 hover:bg-black hover:text-white transition-colors cursor-pointer group flex justify-between items-center" onclick="loadBeat('beat-6', 'TOKYO_NIGHTS', 125, 'G maj', 'https://tonejs.github.io/audio/loop/FW3.mp3')">
+                        <div>
+                            <p class="text-xs font-mono mb-1 opacity-60">CHILL-OUT</p>
+                            <h3 class="text-lg font-bold uppercase">TOKYO_NIGHTS</h3>
+                        </div>
+                        <div class="text-right text-xs font-mono">
+                            <p>125 BPM</p>
+                            <p>KEY: G MAJ</p>
+                        </div>
+                    </div>
+
+                    <div id="beat-7" data-genre="UK JERK" class="track-item page-2 hidden industrial-border p-4 hover:bg-black hover:text-white transition-colors cursor-pointer group flex justify-between items-center" onclick="loadBeat('beat-7', 'RETRO_FUTURE', 118, 'C maj', 'https://tonejs.github.io/audio/drum-samples/loops/amen_break.mp3')">
+                        <div>
+                            <p class="text-xs font-mono mb-1 opacity-60">UK JERK</p>
+                            <h3 class="text-lg font-bold uppercase">RETRO_FUTURE</h3>
+                        </div>
+                        <div class="text-right text-xs font-mono">
+                            <p>118 BPM</p>
+                            <p>KEY: C MAJ</p>
+                        </div>
+                    </div>
+
+                    <div id="beat-8" data-genre="MEMPHIS TRAP" class="track-item page-2 hidden industrial-border p-4 hover:bg-black hover:text-white transition-colors cursor-pointer group flex justify-between items-center" onclick="loadBeat('beat-8', 'BASS_DROPS', 150, 'B min', 'https://tonejs.github.io/audio/loop/FW3.mp3')">
+                        <div>
+                            <p class="text-xs font-mono mb-1 opacity-60">MEMPHIS TRAP</p>
+                            <h3 class="text-lg font-bold uppercase">BASS_DROPS</h3>
+                        </div>
+                        <div class="text-right text-xs font-mono">
+                            <p>150 BPM</p>
+                            <p>KEY: B MIN</p>
+                        </div>
+                    </div>
+
+                    <div id="beat-9" data-genre="ALTERNATIVE R&B" class="track-item page-2 hidden industrial-border p-4 hover:bg-black hover:text-white transition-colors cursor-pointer group flex justify-between items-center" onclick="loadBeat('beat-9', 'CLOUD_RAP_VIBE', 130, 'D min', 'https://tonejs.github.io/audio/drum-samples/loops/amen_break.mp3')">
+                        <div>
+                            <p class="text-xs font-mono mb-1 opacity-60">ALTERNATIVE R&B</p>
+                            <h3 class="text-lg font-bold uppercase">CLOUD_RAP_VIBE</h3>
+                        </div>
+                        <div class="text-right text-xs font-mono">
+                            <p>130 BPM</p>
+                            <p>KEY: D MIN</p>
+                        </div>
+                    </div>
+
+                    <div id="beat-10" data-genre="SOULFUL" class="track-item page-2 hidden industrial-border p-4 hover:bg-black hover:text-white transition-colors cursor-pointer group flex justify-between items-center" onclick="loadBeat('beat-10', 'INDUSTRIAL_NOISE', 142, 'F# min', 'https://tonejs.github.io/audio/loop/FW3.mp3')">
+                        <div>
+                            <p class="text-xs font-mono mb-1 opacity-60">SOULFUL</p>
+                            <h3 class="text-lg font-bold uppercase">INDUSTRIAL_NOISE</h3>
+                        </div>
+                        <div class="text-right text-xs font-mono">
+                            <p>142 BPM</p>
+                            <p>KEY: F# MIN</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="pagination-container" class="mt-6 flex justify-between items-center border-t border-black pt-4">
+                    <span class="text-xs font-mono" id="page-indicator">PAGE 1 / 2</span>
+                    <button onclick="togglePage()" id="page-btn" class="industrial-border px-6 py-2 text-sm font-bold uppercase hover:bg-black hover:text-white transition-colors">
+                        NEXT 5 BEATS ->
+                    </button>
+                </div>
+            </section>
+        </div>
+
+        <section class="industrial-border p-6 bg-white relative overflow-hidden flex flex-col justify-between">
+            <div class="absolute inset-0 opacity-5 pointer-events-none" style="background-image: radial-gradient(#000 1px, transparent 1px); background-size: 20px 20px;"></div>
+
+            <div class="relative z-10 w-full flex flex-col h-full">
+                <div class="mb-8">
+                    <span class="safety-orange text-white text-[10px] font-bold px-2 py-1 mb-4 inline-block tracking-tighter uppercase leading-none">NOW_PLAYING</span>
+                    <h2 id="current-title" class="text-4xl md:text-5xl font-black uppercase break-all leading-none italic">SELECT_BEAT</h2>
+                    
+                    <canvas id="waveform-canvas" width="800" height="128" class="w-full h-16 mt-6 industrial-border bg-[#F5F5F5]"></canvas>
+                </div>
+
+                <div class="space-y-8 mb-12">
+                    <div>
+                        <div class="flex justify-between text-xs font-mono mb-2 uppercase">
+                            <span>TEMPO_BPM</span>
+                            <span id="bpm-val">100%</span>
+                        </div>
+                        <input type="range" id="bpm-slider" min="0.5" max="1.5" step="0.01" value="1" class="w-full" oninput="updateBPM(this.value)" disabled>
+                    </div>
+
+                    <div>
+                        <div class="flex justify-between text-xs font-mono mb-2 uppercase">
+                            <span>PITCH_SHIFT</span>
+                            <span id="pitch-val">0 SEMITONES</span>
+                        </div>
+                        <input type="range" id="pitch-slider" min="-12" max="12" step="1" value="0" class="w-full" oninput="updatePitch(this.value)" disabled>
+                    </div>
+                </div>
+
+                <div class="flex gap-4 mt-auto">
+                    <button id="play-btn" onclick="togglePlay()" disabled class="flex-1 industrial-border py-4 font-bold uppercase text-xl hover:bg-black hover:text-white transition-all disabled:opacity-50 disabled:cursor-not-allowed">
+                        PLAY
+                    </button>
+                    <button class="safety-orange text-white px-8 font-bold uppercase text-xl hover:opacity-80 transition-all">
+                        BUY
+                    </button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer class="mt-20">
+        <div class="industrial-border p-6 bg-white shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
+            <div class="mb-6">
+                <span class="bg-black text-white text-[10px] font-mono font-bold px-2 py-1 uppercase tracking-widest">// COPYRIGHT_NOTICE</span>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 border-b-2 border-black pb-8 mb-6">
+                <div>
+                    <p class="text-sm font-bold uppercase leading-snug mb-3">
+                        ВСЕ ПРАВА НА АУДИОМАТЕРИАЛЫ ЗАЩИЩЕНЫ. СТРОГОЕ СОБЛЮДЕНИЕ АВТОРСКИХ ПРАВ.
+                    </p>
+                    <p class="text-xs font-mono uppercase leading-relaxed text-gray-700">
+                        Если вы хотите получить бит эксклюзивно, узнать стоимость и безопасно приобрести — выберите трек и нажмите кнопку <span class="safety-orange text-white font-bold px-2 py-0.5 mx-1 inline-block">BUY</span> в плеере.
+                    </p>
+                </div>
+                
+                <div>
+                    <p class="text-sm font-bold uppercase leading-snug mb-3">
+                        ALL RIGHTS TO AUDIO MATERIALS ARE RESERVED. STRICT COPYRIGHT ENFORCEMENT.
+                    </p>
+                    <p class="text-xs font-mono uppercase leading-relaxed text-gray-700">
+                        If you want to acquire an exclusive beat, check the pricing, and purchase safely — select a track and press the <span class="safety-orange text-white font-bold px-2 py-0.5 mx-1 inline-block">BUY</span> button in the player.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="text-[10px] font-mono opacity-40 uppercase text-center md:text-left">
+                STAS METAGHETTO DIGITAL INFRASTRUCTURE // ALL RIGHTS RESERVED // DESIGNED_FOR_USERS
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let player = null;
+        let isPlaying = false;
+        let isLoading = false;
+        let waveform = null;
+        let canvasCtx = null;
+        let currentPage = 1;
+
+        function filterBeats(genre) {
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                if (btn.innerText === genre) {
+                    btn.classList.add('bg-black', 'text-white');
+                } else {
+                    btn.classList.remove('bg-black', 'text-white');
+                }
+            });
+
+            const allBeats = document.querySelectorAll('.track-item');
+            const paginationContainer = document.getElementById('pagination-container');
+
+            if (genre === 'ALL') {
+                currentPage = 1;
+                document.getElementById('page-indicator').innerText = "PAGE 1 / 2";
+                document.getElementById('page-btn').innerText = "NEXT 5 BEATS ->";
+                
+                allBeats.forEach(beat => {
+                    if (beat.classList.contains('page-1')) {
+                        beat.classList.remove('hidden');
+                    } else {
+                        beat.classList.add('hidden');
+                    }
+                });
+                paginationContainer.classList.remove('hidden');
+                paginationContainer.classList.add('flex');
+            } else {
+                allBeats.forEach(beat => {
+                    if (beat.dataset.genre === genre) {
+                        beat.classList.remove('hidden');
+                    } else {
+                        beat.classList.add('hidden');
+                    }
+                });
+                paginationContainer.classList.remove('flex');
+                paginationContainer.classList.add('hidden');
+            }
+        }
+
+        function togglePage() {
+            const page1 = document.querySelectorAll('.page-1');
+            const page2 = document.querySelectorAll('.page-2');
+            const pageIndicator = document.getElementById('page-indicator');
+            const pageBtn = document.getElementById('page-btn');
+
+            if (currentPage === 1) {
+                page1.forEach(el => el.classList.add('hidden'));
+                page2.forEach(el => el.classList.remove('hidden'));
+                currentPage = 2;
+                pageIndicator.innerText = "PAGE 2 / 2";
+                pageBtn.innerText = "<- PREV 5 BEATS";
+            } else {
+                page1.forEach(el => el.classList.remove('hidden'));
+                page2.forEach(el => el.classList.add('hidden'));
+                currentPage = 1;
+                pageIndicator.innerText = "PAGE 1 / 2";
+                pageBtn.innerText = "NEXT 5 BEATS ->";
+            }
+        }
+
+        function playRandomBeat() {
+            const beatItems = document.querySelectorAll('.track-item');
+            if(beatItems.length > 0) {
+                const randomIndex = Math.floor(Math.random() * beatItems.length);
+                const targetBeat = beatItems[randomIndex];
+                
+                targetBeat.click();
+                
+                document.getElementById('current-title').scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        }
+
+        function initWaveform() {
+            if (!waveform) {
+                waveform = new Tone.Waveform(256);
+                const canvas = document.getElementById('waveform-canvas');
+                canvasCtx = canvas.getContext('2d');
+                drawWaveform();
+            }
+        }
+
+        function drawWaveform() {
+            requestAnimationFrame(drawWaveform);
+            const canvas = canvasCtx.canvas;
+            
+            canvasCtx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            if (!isPlaying || !waveform) {
+                canvasCtx.beginPath();
+                canvasCtx.moveTo(0, canvas.height / 2);
+                canvasCtx.lineTo(canvas.width, canvas.height / 2);
+                canvasCtx.strokeStyle = '#000';
+                canvasCtx.lineWidth = 2;
+                canvasCtx.stroke();
+                return;
+            }
+
+            const buffer = waveform.getValue();
+            canvasCtx.beginPath();
+            canvasCtx.strokeStyle = '#FF4500';
+            canvasCtx.lineWidth = 2;
+
+            for (let i = 0; i < buffer.length; i++) {
+                const x = (i / buffer.length) * canvas.width;
+                const y = ((1 - buffer[i]) / 2) * canvas.height;
+                if (i === 0) {
+                    canvasCtx.moveTo(x, y);
+                } else {
+                    canvasCtx.lineTo(x, y);
+                }
+            }
+            canvasCtx.stroke();
+        }
+
+        async function loadBeat(elementId, title, bpm, key, audioUrl) {
+            if (isLoading) return;
+
+            document.getElementById('current-title').innerText = `LOADING...`;
+            isLoading = true;
+            
+            document.querySelectorAll('.track-item').forEach(el => el.classList.remove('beat-active'));
+            document.getElementById(elementId).classList.add('beat-active');
+            
+            const playBtn = document.getElementById('play-btn');
+            const bpmSlider = document.getElementById('bpm-slider');
+            const pitchSlider = document.getElementById('pitch-slider');
+            
+            playBtn.disabled = true;
+            bpmSlider.disabled = true;
+            pitchSlider.disabled = true;
+
+            if (player) {
+                player.stop();
+                player.dispose();
+                isPlaying = false;
+                playBtn.innerText = 'PLAY';
+                playBtn.classList.remove('bg-black', 'text-white');
+            }
+
+            await Tone.start();
+            initWaveform();
+
+            player = new Tone.GrainPlayer({
+                url: audioUrl,
+                loop: true,
+                grainSize: 0.1,
+                overlap: 0.05,
+                onload: () => {
+                    document.getElementById('current-title').innerText = `${title}`;
+                    isLoading = false;
+                    
+                    bpmSlider.value = 1;
+                    pitchSlider.value = 0;
+                    bpmSlider.disabled = false;
+                    pitchSlider.disabled = false;
+                    playBtn.disabled = false;
+                    
+                    updateBPM(1);
+                    updatePitch(0);
+                    
+                    player.connect(waveform);
+                    
+                    // Auto-play when loaded via drum pad
+                    togglePlay(); 
+                }
+            }).toDestination();
+        }
+
+        async function togglePlay() {
+            if (!player || isLoading) return;
+
+            if (Tone.context.state !== 'running') {
+                await Tone.start();
+            }
+
+            const playBtn = document.getElementById('play-btn');
+
+            if (!isPlaying) {
+                player.start();
+                isPlaying = true;
+                playBtn.innerText = 'STOP';
+                playBtn.classList.add('bg-black', 'text-white');
+            } else {
+                player.stop();
+                isPlaying = false;
+                playBtn.innerText = 'PLAY';
+                playBtn.classList.remove('bg-black', 'text-white');
+            }
+        }
+
+        function updateBPM(val) {
+            if(player) {
+                player.playbackRate = val;
+            }
+            document.getElementById('bpm-val').innerText = Math.round(val * 100) + "%";
+        }
+
+        function updatePitch(val) {
+            if(player) {
+                player.detune = val * 100;
+            }
+            const displayVal = val > 0 ? "+" + val : val;
+            document.getElementById('pitch-val').innerText = displayVal + " SEMITONES";
+        }
+    </script>
+</body>
+</html>
