@@ -44,7 +44,8 @@
             <p class="text-sm font-mono mt-2">PROPERTY OF METAGHETTO © 2026 // AUDIO_SYSTEM</p>
         </div>
         
-        <div class="mt-6 flex flex-col lg:flex-row gap-8 lg:gap-12 items-stretch">
+        <div class="mt-6 flex flex-col lg:flex-row-reverse gap-8 lg:gap-12 items-stretch">
+            <!-- ДРАМ-ПЭДЫ (ТЕПЕРЬ СПРАВА) -->
             <div class="border-2 border-black p-3 md:p-4 inline-block bg-[#F5F5F5] shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] select-none self-start shrink-0">
                 <div class="grid grid-cols-4 gap-2 md:gap-3">
                     <div class="w-10 h-10 md:w-12 md:h-12 border-2 border-black bg-white hover:bg-[#FF4500] transition-colors cursor-pointer active:bg-black" onclick="playRandomBeat()"></div>
@@ -69,6 +70,7 @@
                 </div>
             </div>
 
+            <!-- ТЕКСТОВОЕ ПОЛЕ (ТЕПЕРЬ СЛЕВА) -->
             <div class="flex flex-col flex-1 h-full min-h-[200px] xl:max-w-xl">
                 <div class="mb-3">
                     <span class="safety-orange text-white text-[10px] md:text-xs font-bold px-3 py-1.5 uppercase tracking-widest border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
@@ -84,6 +86,48 @@
 
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
         
+        <!-- КОЛОНКА 1: ПЛЕЕР (ТЕПЕРЬ СЛЕВА) -->
+        <section class="industrial-border p-6 bg-white relative overflow-hidden flex flex-col justify-between">
+            <div class="absolute inset-0 opacity-5 pointer-events-none" style="background-image: radial-gradient(#000 1px, transparent 1px); background-size: 20px 20px;"></div>
+
+            <div class="relative z-10 w-full flex flex-col h-full">
+                <div class="mb-8">
+                    <span class="safety-orange text-white text-[10px] font-bold px-2 py-1 mb-4 inline-block tracking-tighter uppercase leading-none">NOW_PLAYING</span>
+                    <h2 id="current-title" class="text-4xl md:text-5xl font-black uppercase break-all leading-none italic">SELECT_BEAT</h2>
+                    
+                    <canvas id="waveform-canvas" width="800" height="128" class="w-full h-16 mt-6 industrial-border bg-[#F5F5F5]"></canvas>
+                </div>
+
+                <div class="space-y-8 mb-12">
+                    <div>
+                        <div class="flex justify-between text-xs font-mono mb-2 uppercase">
+                            <span>TEMPO_BPM</span>
+                            <span id="bpm-val">100%</span>
+                        </div>
+                        <input type="range" id="bpm-slider" min="0.5" max="1.5" step="0.01" value="1" class="w-full" oninput="updateBPM(this.value)" disabled>
+                    </div>
+
+                    <div>
+                        <div class="flex justify-between text-xs font-mono mb-2 uppercase">
+                            <span>PITCH_SHIFT</span>
+                            <span id="pitch-val">0 SEMITONES</span>
+                        </div>
+                        <input type="range" id="pitch-slider" min="-12" max="12" step="1" value="0" class="w-full" oninput="updatePitch(this.value)" disabled>
+                    </div>
+                </div>
+
+                <div class="flex gap-4 mt-auto">
+                    <button id="play-btn" onclick="togglePlay()" disabled class="flex-1 industrial-border py-4 font-bold uppercase text-xl hover:bg-black hover:text-white transition-all disabled:opacity-50 disabled:cursor-not-allowed">
+                        PLAY
+                    </button>
+                    <button class="safety-orange text-white px-8 font-bold uppercase text-xl hover:opacity-80 transition-all">
+                        BUY
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- КОЛОНКА 2: СПИСОК БИТОВ (ТЕПЕРЬ СПРАВА) -->
         <div class="flex flex-col gap-10">
             <section>
                 <h2 class="text-xl font-bold mb-4 italic">// AVAILABLE_BEATS</h2>
@@ -218,46 +262,6 @@
                 </div>
             </section>
         </div>
-
-        <section class="industrial-border p-6 bg-white relative overflow-hidden flex flex-col justify-between">
-            <div class="absolute inset-0 opacity-5 pointer-events-none" style="background-image: radial-gradient(#000 1px, transparent 1px); background-size: 20px 20px;"></div>
-
-            <div class="relative z-10 w-full flex flex-col h-full">
-                <div class="mb-8">
-                    <span class="safety-orange text-white text-[10px] font-bold px-2 py-1 mb-4 inline-block tracking-tighter uppercase leading-none">NOW_PLAYING</span>
-                    <h2 id="current-title" class="text-4xl md:text-5xl font-black uppercase break-all leading-none italic">SELECT_BEAT</h2>
-                    
-                    <canvas id="waveform-canvas" width="800" height="128" class="w-full h-16 mt-6 industrial-border bg-[#F5F5F5]"></canvas>
-                </div>
-
-                <div class="space-y-8 mb-12">
-                    <div>
-                        <div class="flex justify-between text-xs font-mono mb-2 uppercase">
-                            <span>TEMPO_BPM</span>
-                            <span id="bpm-val">100%</span>
-                        </div>
-                        <input type="range" id="bpm-slider" min="0.5" max="1.5" step="0.01" value="1" class="w-full" oninput="updateBPM(this.value)" disabled>
-                    </div>
-
-                    <div>
-                        <div class="flex justify-between text-xs font-mono mb-2 uppercase">
-                            <span>PITCH_SHIFT</span>
-                            <span id="pitch-val">0 SEMITONES</span>
-                        </div>
-                        <input type="range" id="pitch-slider" min="-12" max="12" step="1" value="0" class="w-full" oninput="updatePitch(this.value)" disabled>
-                    </div>
-                </div>
-
-                <div class="flex gap-4 mt-auto">
-                    <button id="play-btn" onclick="togglePlay()" disabled class="flex-1 industrial-border py-4 font-bold uppercase text-xl hover:bg-black hover:text-white transition-all disabled:opacity-50 disabled:cursor-not-allowed">
-                        PLAY
-                    </button>
-                    <button class="safety-orange text-white px-8 font-bold uppercase text-xl hover:opacity-80 transition-all">
-                        BUY
-                    </button>
-                </div>
-            </div>
-        </section>
     </div>
 
     <footer class="mt-20">
